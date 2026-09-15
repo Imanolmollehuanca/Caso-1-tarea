@@ -1,7 +1,8 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using Caso_1_tarea.Models;
- 
+using Caso_1_tarea.Services.Interfaces;
+
 namespace Caso_1_tarea.Services;
  
 public class AuthService : IAuthService
