@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "17fUs89Frus=",
+  "success": true,
+  "projectFilePath": "D:\\1.Desarrollo de Aplicaciones Empresariales Avanzado\\Caso 1 tarea\\Caso 1 tarea\\Caso 1 tarea.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}
