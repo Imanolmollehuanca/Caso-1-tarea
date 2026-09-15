@@ -2,7 +2,7 @@
 using System.Text;
 using Caso_1_tarea.Models;
  
-namespace Caso_1_tarea.Services;
+namespace Caso_1_tarea.Services.Interfaces;
  
 public class AuthService : IAuthService
 {
