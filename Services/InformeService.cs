@@ -22,23 +22,24 @@ public class InformeService : IInformeService
         return GenerarEstadoInventario(productos).Where(dto => dto.StockBajo).ToList();
     }
  
-    public List<MovimientoHistorialDto> GenerarHistorialMovimientos(IEnumerable<MovimientoInventario> movimientos)
+    public List<MovimientoHistorialDto> GenerarHistorialMovimientos(IEnumerable<MovimientosInventario> movimientos)
     {
         return movimientos
             .OrderByDescending(m => m.Fecha)
             .Select(m => new MovimientoHistorialDto
             {
                 ProductoId = m.ProductoId,
-                TipoMovimiento = m.TipoMovimiento.ToString(),
+                TipoMovimiento = m.Tipo,
                 Cantidad = m.Cantidad,
-                Fecha = m.Fecha
+                // Fecha es DateTime? en la clase real; si viniera nula, usamos MinValue como respaldo.
+                Fecha = m.Fecha ?? DateTime.MinValue
             }).ToList();
     }
  
-    public List<ProductoMasVendidoDto> GenerarProductosMasVendidos(IEnumerable<MovimientoInventario> movimientos, int topN = 5)
+    public List<ProductoMasVendidoDto> GenerarProductosMasVendidos(IEnumerable<MovimientosInventario> movimientos, int topN = 5)
     {
         return movimientos
-            .Where(m => m.TipoMovimiento.ToString() == "Salida")
+            .Where(m => m.Tipo == "Salida")
             .GroupBy(m => m.ProductoId)
             .Select(g => new ProductoMasVendidoDto
             {
