@@ -29,6 +29,7 @@ namespace Caso_1_tarea.Services
         public async Task CrearAsync(Producto producto)
         {
             await _unitOfWork.Productos.AddAsync(producto);
+            await _unitOfWork.CompleteAsync();
         }
 
         public async Task<bool> RegistrarEntradaAsync(int productoId, int cantidad, string observacion)
@@ -39,7 +40,7 @@ namespace Caso_1_tarea.Services
             producto.CantidadEnInventario += cantidad;
             _unitOfWork.Productos.Update(producto);
 
-            var movimiento = new MovimientoInventario
+            var movimiento = new MovimientosInventario
             {
                 ProductoId = productoId,
                 Tipo = "ENTRADA",
@@ -64,7 +65,7 @@ namespace Caso_1_tarea.Services
             producto.CantidadEnInventario -= cantidad;
             _unitOfWork.Productos.Update(producto);
 
-            var movimiento = new MovimientoInventario
+            var movimiento = new MovimientosInventario
             {
                 ProductoId = productoId,
                 Tipo = "SALIDA",

@@ -10,13 +10,13 @@ namespace Caso_1_tarea.Repositories
         private readonly ApplicationDbContext _context;
 
         public IGenericRepository<Producto> Productos { get; }
-        public IGenericRepository<MovimientoInventario> MovimientosInventario { get; }
+        public IGenericRepository<MovimientosInventario> MovimientosInventario { get; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Productos = new GenericRepository<Producto>(_context);
-            MovimientosInventario = new GenericRepository<MovimientoInventario>(_context);
+            MovimientosInventario = new GenericRepository<MovimientosInventario>(_context);
         }
 
         public async Task<int> CompleteAsync()
